@@ -6,3 +6,6 @@ def cls():
 
 def textYellow(text):
     return colored(text, "yellow")
+
+def textYellowBold(text):
+    return colored(text, "yellow", attrs=["bold"])
