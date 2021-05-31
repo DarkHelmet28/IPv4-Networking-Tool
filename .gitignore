@@ -1,0 +1,4 @@
+# File to Exlude
+/__pycache__/*
+/poetry.lock
+/pyproject.toml
