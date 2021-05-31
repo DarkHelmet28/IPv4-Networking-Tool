@@ -58,10 +58,10 @@ def getScope(address):
     else:
         return 'Public'
 
-def getSubnetmask(address, mode ='decimal', complement = False):
+def getSubnetmask(address, mode ='decimal', complement = False, subnetBits = 0):
     subnetmaskBit = ''
     subnetmask = ''
-    networkBits = int(address.split('/')[1])
+    networkBits = int(address.split('/')[1]) + subnetBits
     for i in range(0, 32):
         if networkBits > 0:
             if complement:
@@ -102,6 +102,10 @@ def getActualNetworks(desiredNetworks):
 def getSubnetsBitsToBorrow(desiredNetworks):
     actualNetworks = getActualNetworks(desiredNetworks)
     return int(math.log2(actualNetworks))
+
+def getNumberHostNetwork(address, subnetBits = 0):
+    networkBits = int(address.split('/')[1]) + subnetBits
+    return pow(2, (32 - networkBits)) - 2
 
 def getNetworkInfo(address, mode = 'network'):
     ip = address.split('/')[0]

@@ -1,4 +1,5 @@
 import formattedResult as fr
+from utility import cls
 
 def menu():
     print("Please choose the functionality you prefer:")
@@ -6,13 +7,14 @@ def menu():
     print("\t2) Divide into subnets")
 
 if __name__ == '__main__':
+    cls()
     menu()
     choice = int(input("> "))
     if choice == 1:
         address = input("\nInsert IPv4 Address (CIDR Notation):\t")
         print(f'\n\n{fr.getIPv4Properties(address)}')
     elif choice == 2:
-        address = input("\nInsert IPv4 Address (CIDR Notation):\t\t\t")
+        address = input("\nInsert IPv4 Address (CIDR Notation):\t")
         desiredNetworks = int(input("Insert the desired number of networks:\t"))
         print(f'\n\n{fr.getIPv4Subnets(address, desiredNetworks)}')
     else:
