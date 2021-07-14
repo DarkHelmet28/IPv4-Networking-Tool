@@ -22,10 +22,10 @@ def getIPv4Subnets(address, networks):
     properties = f'-- {textYellowBold("IPv4 Subnets")} --\nCurrent IPv4 Address:\t{address}\nDesired Networks:\t\t{networks}\n\n'
     properties += f'\t{textYellow("Actual Networks to create")}:\t{ip.getActualNetworks(networks)}\n'
     properties += f'\t{textYellow("Subnet bits to borrow")}:\t\t{subnetBits}\n'
-    properties += f'\t{textYellow("Old Subnetmask")}:\t\t\t\t{ip.getSubnetmask(address)}\n'
-    properties += f'\t{textYellow("New Subnetmask")}:\t\t\t\t{ip.getSubnetmask(address, subnetBits = subnetBits)}\n'
-    properties += f'\t{textYellow("New CIDR")}:\t\t\t\t\t/{newCidr}\n'
-    properties += f'\t{textYellow("# Host per Subnet")}:\t\t\t{ip.getNumberHostNetwork(address, subnetBits)}\n\n'
+    properties += f'\t{textYellow("Old Subnetmask")}:\t\t\t{ip.getSubnetmask(address)}\n'
+    properties += f'\t{textYellow("New Subnetmask")}:\t\t\t{ip.getSubnetmask(address, subnetBits = subnetBits)}\n'
+    properties += f'\t{textYellow("New CIDR")}:\t\t\t/{newCidr}\n'
+    properties += f'\t{textYellow("# Host per Subnet")}:\t\t{ip.getNumberHostNetwork(address, subnetBits)}\n\n'
 
     # Analyze every Single Subnets
     newAddr = f'{address.split("/")[0]}/{newCidr}' 
